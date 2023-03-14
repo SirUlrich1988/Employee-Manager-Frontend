@@ -1,3 +1,93 @@
+:root {
+  --titleFont: "PT Sans", sans-serif;
+  --paragraphFont: "Open Sans", sans-serif;
+
+  --primary: #3693e9;
+  --white: #ffffff;
+  --gray: #aba4a4;
+  --black: #000000;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
-  background-color: rgb(159, 142, 142);
+  background-color: var(--primary);
+  font-family: var(--paragraphFont);
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+/* Globales */
+
+.container {
+  max-width: 120rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--titleFont);
+  line-height: 1.2;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4.3rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3.2rem;
+}
+
+h4 {
+  font-size: 2.8rem;
+}
+
+img {
+  width: 30%;
+}
+
+button {
+  display: block;
+  font-family: var(--titleFont);
+  color: var(--black);
+  background-color: var(--gray);
+  text-align: center;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin-top: 1.5rem;
+}
+
+input {
+  text-align: center;
+}
+
+th,
+td {
+  text-align: center;
 }

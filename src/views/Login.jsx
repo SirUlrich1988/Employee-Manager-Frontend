@@ -3,6 +3,7 @@ import api from '../services/Api'
 import { useDispatch } from 'react-redux'
 import { getUser } from '../app/slices/authSlice'
 import { useNavigate } from 'react-router-dom'
+import '../styles/Login.css'
 
 const Login = () => {
 
@@ -11,24 +12,25 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  function onChange({name, value}) {
-      setData({ ...data, [name]: value })
+  function onChange({ name, value }) {
+    setData({ ...data, [name]: value })
   }
-  
+
   const loginUser = (e) => {
-      e.preventDefault()
-      api.post('auth/login/', data)
-          .then(res => {
-            dispatch(getUser(res.data))
-            navigate('/')
-          })
-          .catch(err => {setError(err.response.data.message)})
+    e.preventDefault()
+    api.post('auth/login/', data)
+      .then(res => {
+        dispatch(getUser(res.data))
+        navigate('/')
+      })
+      .catch(err => { setError(err.response.data.message) })
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <p>Inicia con tu Correo y Contraseña</p>
+    <div className='login__container'>
+      <h1>Gestor de Empleados</h1><br />
+      <img src="https://www.quantoconsulting.com/wp-content/uploads/2018/11/RECURSOS-HUMANOS-empresarial-coaching-valladolid-madrid.png" alt="imagen manager" />
+      <h3>Login</h3><br />
       <form onSubmit={loginUser}>
         <div>
           <label htmlFor="email">Correo</label> <br />
@@ -51,11 +53,10 @@ const Login = () => {
             onChange={({ target }) => onChange(target)}
           />
         </div>
-
-        <button type='submit'>Enviar</button>
-
+        <div className='btn__container'>
+        <button type='submit'>Ingresar</button>
+        </div>
       </form>
-
       {
         error && <p>{error}</p>
       }

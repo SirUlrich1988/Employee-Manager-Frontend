@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import api from '../services/Api'
+import '../styles/Register.css'
 
 const Register = ({ edit }) => {
 
@@ -49,7 +50,8 @@ const Register = ({ edit }) => {
     },[edit])
 
     return (
-        <div>
+        <div className='register__container'>
+            <h1>Registro de Nuevo Empleado</h1>
             <form onSubmit={onSubmit}>
                 <div>
                     <label htmlFor="firstName">Nombre</label> <br />
@@ -84,7 +86,7 @@ const Register = ({ edit }) => {
                 <div>
                     <label htmlFor="password-create">Contraseña</label> <br />
                     <input
-                        type="password"
+                        type="text"
                         name='password'
                         id='password-create'
                         value={data.password || ''}
@@ -98,6 +100,16 @@ const Register = ({ edit }) => {
                         name='phone'
                         id='phone'
                         value={data.phone || ''}
+                        onChange={({ target }) => onChange(target)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="role">Rol</label> <br />
+                    <input
+                        type="text"
+                        name='role'
+                        id='role'
+                        value={data.role || ''}
                         onChange={({ target }) => onChange(target)}
                     />
                 </div>
@@ -121,11 +133,13 @@ const Register = ({ edit }) => {
                         onChange={({ target }) => onChange(target)}
                     />
                 </div>
+                <div className='btn__container'>
                 <button>
                     {
                         edit ? 'Actualizar' : 'Crear'
                     }
                 </button>
+                </div>
             </form>
         </div>
     )

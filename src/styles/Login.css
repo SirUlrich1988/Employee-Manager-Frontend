@@ -1,0 +1,29 @@
+.login__container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__container {
+    display: flex;
+    justify-content: center;
+}
+
+.logout__container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3rem;
+}
+
+.btn__erase {
+    cursor: pointer;
+    font-size: 2.8rem;
+}
+
+.btn__edit {
+    color: black;
+    font-size: 2.8rem;
+}
